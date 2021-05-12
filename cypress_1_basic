@@ -1,0 +1,9 @@
+///<reference types="cypress" />
+it ('User should be able to login with valid data', () => {
+    cy.visit('https://react-redux.realworld.io');
+    cy.get(':nth-child(2) > .nav-link').click();
+    cy.get(':nth-child(1) > .form-control').type('solpadein1@gmail.com').should('have.value', 'solpadein1@gmail.com');
+    cy.get(':nth-child(2) > .form-control').type('solpadein').should('have.value', 'solpadein');
+    cy.get('.btn').click();
+    cy.get(':nth-child(4) > .nav-link').contains('solpadein').should('exist');
+});
